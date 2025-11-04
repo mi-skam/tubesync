@@ -15,6 +15,31 @@ jobs:
           python-version: '3.11'
       - name: Install dependencies
         run: pip install -r requirements.txt
+      - name: Restore previous metadata
+        run: |
+          mkdir -p output
+          # Fetch metadata.json from gh-pages branch if it exists
+          if git ls-remote --exit-code --heads origin gh-pages; then
+            echo "Fetching previous metadata from gh-pages branch..."
+            if git fetch origin gh-pages:gh-pages 2>&1; then
+              if git show gh-pages:metadata.json > output/metadata.json 2>/dev/null; then
+                echo "✅ Previous metadata restored"
+                # Use jq if available, otherwise use grep/sed as fallback
+                if command -v jq >/dev/null 2>&1; then
+                  echo "Previous sync date: $(jq -r '.last_updated // "unknown"' output/metadata.json)"
+                  echo "Previous subscription count: $(jq -r '.subscription_count // 0' output/metadata.json)"
+                else
+                  echo "Previous metadata file found (jq not available for detailed info)"
+                fi
+              else
+                echo "⚠️  No previous metadata found in gh-pages (first run)"
+              fi
+            else
+              echo "⚠️  Failed to fetch gh-pages branch"
+            fi
+          else
+            echo "⚠️  gh-pages branch doesn't exist yet (first run)"
+          fi
       - name: Fetch subscriptions
         env:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
