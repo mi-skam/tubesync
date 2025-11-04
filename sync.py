@@ -4,6 +4,7 @@ import json
 import os
 from datetime import datetime
 from pathlib import Path
+
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 
@@ -62,7 +63,7 @@ def transform_to_youtube_csv(subscriptions, output_path):
 def load_previous_metadata():
     """Load previous metadata if it exists"""
     if METADATA_FILE.exists():
-        with open(METADATA_FILE, "r", encoding="utf-8") as f:
+        with open(METADATA_FILE, encoding="utf-8") as f:
             return json.load(f)
     return None
 

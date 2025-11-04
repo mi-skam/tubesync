@@ -1,12 +1,14 @@
 import csv
 import json
+
 import pytest
+
 from sync import (
-    transform_to_newpipe_format,
-    transform_to_youtube_csv,
     compare_subscriptions,
     generate_cleanup_html,
     load_previous_metadata,
+    transform_to_newpipe_format,
+    transform_to_youtube_csv,
 )
 
 
@@ -76,7 +78,7 @@ class TestTransformToYoutubeCsv:
 
         assert output_path.exists()
 
-        with open(output_path, "r", encoding="utf-8") as f:
+        with open(output_path, encoding="utf-8") as f:
             reader = csv.reader(f)
             headers = next(reader)
             assert headers == ["Channel Id", "Channel Url", "Channel Title"]
@@ -86,7 +88,7 @@ class TestTransformToYoutubeCsv:
         output_path = tmp_path / "test.csv"
         transform_to_youtube_csv(sample_subscriptions, output_path)
 
-        with open(output_path, "r", encoding="utf-8") as f:
+        with open(output_path, encoding="utf-8") as f:
             reader = csv.reader(f)
             next(reader)  # Skip headers
             rows = list(reader)
@@ -101,7 +103,7 @@ class TestTransformToYoutubeCsv:
         output_path = tmp_path / "test.csv"
         transform_to_youtube_csv([], output_path)
 
-        with open(output_path, "r", encoding="utf-8") as f:
+        with open(output_path, encoding="utf-8") as f:
             reader = csv.reader(f)
             headers = next(reader)
             rows = list(reader)
