@@ -1,0 +1,77 @@
+{
+  "entries": [
+    {
+      "timestamp": "2025-11-14T01:16:29.528230",
+      "subscription_count": 79,
+      "changes": {
+        "added_count": 1,
+        "removed_count": 2,
+        "unchanged_count": 78,
+        "added_channels": [
+          {
+            "name": "OpenInfra Foundation",
+            "id": "UCQ74G2gKXdpwZkXEsclzcrA"
+          }
+        ],
+        "removed_channels": [
+          {
+            "name": "Breaking Lab",
+            "id": "UCE2hJ9CYR57BYhk3TjGVG6w"
+          },
+          {
+            "name": "Geld für die Welt — Maurice Höfgen",
+            "id": "UCqLv2nTsMB_FXtQRFNXjWhA"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-19T02:37:39.347959",
+      "subscription_count": 74,
+      "changes": {
+        "added_count": 0,
+        "removed_count": 5,
+        "unchanged_count": 74,
+        "added_channels": [],
+        "removed_channels": [
+          {
+            "name": "Vox",
+            "id": "UCLXo7UDZvByw2ixzpQCufnA"
+          },
+          {
+            "name": "InsideWire",
+            "id": "UCT9EHa1CrvghG0kGz3uA3HQ"
+          },
+          {
+            "name": "Sergei Chyrkov",
+            "id": "UCxPu6HTtD9crtYerqBhdSLQ"
+          },
+          {
+            "name": "Mikkel Malmberg",
+            "id": "UCPS2CLdJZaG_rFUXfwn2jpA"
+          },
+          {
+            "name": "Zaiste Programming",
+            "id": "UCzgkOWKcwy0uhYilE6bd1Lg"
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-11-20T02:37:37.075083",
+      "subscription_count": 75,
+      "changes": {
+        "added_count": 1,
+        "removed_count": 0,
+        "unchanged_count": 74,
+        "added_channels": [
+          {
+            "name": "linkarzu",
+            "id": "UCrSIvbFncPSlK6AdwE2QboA"
+          }
+        ],
+        "removed_channels": []
+      }
+    }
+  ]
+}
